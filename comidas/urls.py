@@ -1,9 +1,9 @@
 #coding: utf-8
 from django.conf.urls import patterns, include, url
 
-from .views import FoodList, CreateFood
+from .views import FoodList, FoodCreate
 
 urlpatterns = patterns('',
     url(r'^$', FoodList.as_view(), name='foodlist'),
-    url(r'^createfood/$', CreateFood.as_view(), name='createfood'),
+    url(r'^createfood/$', FoodCreate.as_view(), name='createfood'),
 )
