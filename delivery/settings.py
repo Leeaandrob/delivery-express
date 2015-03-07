@@ -40,6 +40,8 @@ INSTALLED_APPS = (
     'delivery',
     #our apps
     'comidas',
+    'pessoas',
+    'restaurantes',
 )
 
 MIDDLEWARE_CLASSES = (
