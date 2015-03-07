@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView
 from django.core.urlresolvers import reverse, reverse_lazy
-
+from django.http import HttpResponseRedirect
 from .models import Restaurant
 from .forms import RestaurantForm,RestaurantFormEdit
 
@@ -11,10 +11,20 @@ class RestaurantList(ListView):
     template_name = "restaurantes/restaurant_list.html"
 
 class RestaurantCreate(CreateView):
-    #model = Restaurant
     template_name = "restaurantes/createrestaurant.html"
     form_class = RestaurantForm
-    success_url = reverse_lazy('restaurantlist')
+    #success_url = reverse_lazy('restaurantlist')
+
+    def post(self, request, *args, **kwargs):
+        form = RestaurantForm(request.POST)
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.username = f.email
+            f.set_password(f.password)
+            f.save()
+            return HttpResponseRedirect('/restaurantlist/')
+        else:
+            return render(request,'restaurantes/createrestaurant.html',{'form':form})
 
 class RestaurantUpdate(UpdateView):
     model = Restaurant
