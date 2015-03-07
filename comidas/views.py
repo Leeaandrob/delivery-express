@@ -17,6 +17,5 @@ class FoodCreate(CreateView):
 
 class FoodUpdate(UpdateView):
     model = Food
+    template_name = "comidas/updatefood.html"
     success_url = reverse_lazy('foodlist')
-
-
