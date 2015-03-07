@@ -4,7 +4,9 @@
     <h1>Foods</h1>
     <ul>
         {% for food in object_list %}
-        <li>{{ food.name }}</li>
+        <a href="{%url "updatefood" food.pk%}"<li>{{ food.name }}</li></a>
+        {%empty%}
+        <li>Nenhuma comida</li>
         {% endfor %}
     </ul>
     <br>
