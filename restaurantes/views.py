@@ -26,7 +26,7 @@ class RestaurantCreate(CreateView):
 
             #user = authenticate(username=f.username, nopass=f.password)
             #login(request, user)
-            
+
             return HttpResponseRedirect('/home/')
         else:
             return render(request,'restaurantes/createrestaurant.html',{'form':form})
