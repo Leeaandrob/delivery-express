@@ -1,10 +1,10 @@
-{%extends "base.html"%}
+{%extends "delivery/site.html" %}
 {%block content%}
 
     <h1>Foods</h1>
     <ul>
         {% for food in object_list %}
-        <a href="{%url "updatefood" food.pk%}"<li>{{ food.name }}</li></a>
+        <li><a href="{%url "updatefood" food.pk%}">{{ food.name }}</a></li>
         {%empty%}
         <li>Nenhuma comida</li>
         {% endfor %}

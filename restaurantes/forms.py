@@ -9,8 +9,14 @@ class RestaurantForm(forms.ModelForm):
     class Meta:
         model = Restaurant
         fields = ('name','email','phone','address','neighborhood','city','state','cnpj','foods','password')
+        widgets ={
+            'foods': forms.CheckboxSelectMultiple(attrs={'class':'form-inline'}),
+        }
 
 class RestaurantFormEdit(forms.ModelForm):
     class Meta:
         model = Restaurant
         fields = ('name','email','phone','address','neighborhood','city','state','cnpj','foods')
+        widgets ={
+            'foods': forms.CheckboxSelectMultiple(attrs={'class':'form-inline'}),
+        }

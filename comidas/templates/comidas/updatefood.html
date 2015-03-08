@@ -1,4 +1,14 @@
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-</form>
+{%extends "delivery/site.html" %}
+{%block content%}
+
+    <h1>Update Food</h1>
+
+	<form method="post">
+		{% csrf_token %}
+	    {{ form.as_p }}
+	    <input type="submit" value="Submit" />
+	</form>
+
+    <a href="{% url "foodlist" %}">back to list</a>
+
+{%endblock%}

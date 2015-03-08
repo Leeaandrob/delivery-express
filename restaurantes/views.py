@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth import authenticate, login
 from django.views.generic import ListView, CreateView, UpdateView
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
@@ -22,7 +23,11 @@ class RestaurantCreate(CreateView):
             f.username = f.email
             f.set_password(f.password)
             f.save()
-            return HttpResponseRedirect('/restaurantlist/')
+
+            #user = authenticate(username=f.username, nopass=f.password)
+            #login(request, user)
+            
+            return HttpResponseRedirect('/home/')
         else:
             return render(request,'restaurantes/createrestaurant.html',{'form':form})
 
