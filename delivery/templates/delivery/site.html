@@ -19,7 +19,10 @@
 							<a href="/" class="link-menu">INÍCIO</a>
 						</li>
 						<li>
-							<a href="#sobre" class="link-menu">Cardápio</a>
+							<a href="#sobre" class="link-menu">RESTAURANTES</a>
+						</li>
+						<li>
+							<a href="#contato" class="link-menu" data-toggle="dropdown">CONTATO</a>
 						</li>
 					</ul>
 				</div>
@@ -30,8 +33,11 @@
 		<div class="col-md-1 topo-login">
 			<nav class="navbar navbar-default" role="navigation">
 				<ul class="nav navbar-nav navbar-right">
+					<li class="">
+						<a href="{% url 'createrestaurant' %}" class="link-menu">Cadastre seu restaurante!</a>
+					</li>
 					<li class="active">
-						<a href="/logout/" class="link-menu">Logout</a>
+						<a href="/login/" class="link-menu">login</a>
 					</li>
 				</ul>
 			</nav>
@@ -41,7 +47,6 @@
 	</header>
 	<div id="box">
         {%block content%}
-        {{user}}
 		{%endblock%}	
     </div>
 	
