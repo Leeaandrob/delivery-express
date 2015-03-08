@@ -5,6 +5,8 @@ run: clean
 shell: clean
 	python manage.py shell
 
+tests:
+	python manage.py test --settings=delivery.settings_all_tests
 migrations: clean
 	python manage.py makemigrations
 
